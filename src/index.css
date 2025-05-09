@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pixel-size: 2px;
+  --grid-cell: calc(var(--pixel-size) * 16);
+}
+
+@layer base {
+  html {
+    @apply bg-gray-900 text-gray-100;
+  }
+
+  body {
+    @apply min-h-screen antialiased;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-pixel tracking-wide;
+  }
+
+  h1 {
+    @apply text-xl sm:text-2xl md:text-3xl;
+    line-height: 1.2;
+  }
+
+  h2 {
+    @apply text-lg sm:text-xl;
+    line-height: 1.2;
+  }
+
+  h3 {
+    @apply text-base sm:text-lg;
+    line-height: 1.2;
+  }
+
+  p, span, div {
+    @apply font-sans text-sm md:text-base leading-relaxed;
+  }
+
+  button {
+    @apply transition-all duration-200;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 transform;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white hover:shadow-lg hover:shadow-primary-500/20;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-500 hover:bg-secondary-600 text-white hover:shadow-lg hover:shadow-secondary-500/20;
+  }
+
+  .btn-accent {
+    @apply bg-accent-500 hover:bg-accent-600 text-white hover:shadow-lg hover:shadow-accent-500/20;
+  }
+
+  .card {
+    @apply bg-gray-800 p-4 md:p-6 rounded-xl border border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .pixel-art {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+
+  .risk-low {
+    @apply bg-success-500 text-success-50;
+  }
+
+  .risk-medium {
+    @apply bg-warning-500 text-warning-50;
+  }
+
+  .risk-high {
+    @apply bg-danger-500 text-danger-50;
+  }
+}
+
+.pet-container {
+  position: relative;
+  width: calc(var(--pixel-size) * 160);
+  height: calc(var(--pixel-size) * 144);
+  background-color: #131b2d;
+  border: calc(var(--pixel-size) * 2) solid #8b8ba7;
+  border-radius: calc(var(--pixel-size) * 10);
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.pet-screen {
+  position: absolute;
+  top: calc(var(--pixel-size) * 8);
+  left: calc(var(--pixel-size) * 8);
+  width: calc(var(--pixel-size) * 144);
+  height: calc(var(--pixel-size) * 128);
+  background-color: #82a6bb;
+  border-radius: calc(var(--pixel-size) * 2);
+  overflow: hidden;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
