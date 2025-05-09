@@ -2,18 +2,18 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useAssets } from '../../context/AssetsContext';
 
-const RiskHistory: React.FC = () => {
-  const { riskHistory } = useAssets();
+const PriceHistory: React.FC = () => {
+  const { priceHistory } = useAssets();
   
   // Placeholder data until the real data is available
-  const data = riskHistory || [
-    { date: new Date('2025-01-01').toISOString().split('T')[0], overall: 60, security: 70, market: 50, protocol: 55, regulatory: 65 },
-    { date: new Date('2025-01-02').toISOString().split('T')[0], overall: 55, security: 65, market: 45, protocol: 50, regulatory: 60 },
-    { date: new Date('2025-01-03').toISOString().split('T')[0], overall: 58, security: 60, market: 55, protocol: 60, regulatory: 55 },
-    { date: new Date('2025-01-04').toISOString().split('T')[0], overall: 52, security: 55, market: 50, protocol: 55, regulatory: 50 },
-    { date: new Date('2025-01-05').toISOString().split('T')[0], overall: 48, security: 50, market: 45, protocol: 50, regulatory: 45 },
-    { date: new Date('2025-01-06').toISOString().split('T')[0], overall: 45, security: 45, market: 40, protocol: 45, regulatory: 50 },
-    { date: new Date('2025-01-07').toISOString().split('T')[0], overall: 48, security: 35, market: 65, protocol: 45, regulatory: 25 },
+  const data = priceHistory || [
+    { date: '2025-01-01', btc: 42000, eth: 2800, sol: 95 },
+    { date: '2025-01-02', btc: 43500, eth: 2900, sol: 98 },
+    { date: '2025-01-03', btc: 44200, eth: 3000, sol: 102 },
+    { date: '2025-01-04', btc: 43800, eth: 2950, sol: 100 },
+    { date: '2025-01-05', btc: 45000, eth: 3100, sol: 105 },
+    { date: '2025-01-06', btc: 46500, eth: 3200, sol: 108 },
+    { date: '2025-01-07', btc: 47000, eth: 3300, sol: 110 },
   ];
 
   return (
@@ -32,9 +32,8 @@ const RiskHistory: React.FC = () => {
           <YAxis 
             stroke="#9CA3AF"
             tick={{ fill: '#9CA3AF', fontSize: 12 }}
-            domain={[0, 100]}
             label={{ 
-              value: 'Risk %', 
+              value: 'Price USD', 
               angle: -90, 
               position: 'insideLeft',
               style: { fill: '#9CA3AF' } 
@@ -46,23 +45,35 @@ const RiskHistory: React.FC = () => {
               borderColor: '#4B5563',
               color: '#F9FAFB' 
             }}
+            formatter={(value: number) => [`$${value.toLocaleString()}`, '']}
           />
           <Legend />
           <Line 
             type="monotone" 
-            dataKey="overall" 
-            stroke="#8B5CF6" 
+            name="BTC"
+            dataKey="btc" 
+            stroke="#F7931A" 
             activeDot={{ r: 8 }}
             strokeWidth={2}
           />
-          <Line type="monotone" dataKey="security" stroke="#EC4899" strokeWidth={1.5} />
-          <Line type="monotone" dataKey="market" stroke="#06B6D4" strokeWidth={1.5} />
-          <Line type="monotone" dataKey="protocol" stroke="#10B981" strokeWidth={1.5} />
-          <Line type="monotone" dataKey="regulatory" stroke="#F59E0B" strokeWidth={1.5} />
+          <Line 
+            type="monotone" 
+            name="ETH"
+            dataKey="eth" 
+            stroke="#627EEA" 
+            strokeWidth={2}
+          />
+          <Line 
+            type="monotone" 
+            name="SOL"
+            dataKey="sol" 
+            stroke="#14F195" 
+            strokeWidth={2}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
 };
 
-export default RiskHistory;
+export default PriceHistory;

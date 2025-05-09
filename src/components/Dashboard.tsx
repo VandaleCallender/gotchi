@@ -2,7 +2,7 @@ import React from 'react';
 import Pet from './Pet/Pet';
 import RiskOverview from './Risk/RiskOverview';
 import Actions from './Actions/Actions';
-import RiskHistory from './Risk/RiskHistory';
+import PriceHistory from './Risk/RiskHistory';
 import AssetsList from './Assets/AssetsList';
 
 const Dashboard: React.FC = () => {
@@ -32,8 +32,8 @@ const Dashboard: React.FC = () => {
         </div>
         
         <div className="card">
-          <h2 className="mb-4 text-primary-400">Risk History</h2>
-          <RiskHistory />
+          <h2 className="mb-4 text-primary-400">Price History</h2>
+          <PriceHistory />
         </div>
       </div>
     </div>
