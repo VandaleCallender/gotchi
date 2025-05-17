@@ -1,0 +1,22 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import DocsSidebar from './DocsSidebar';
+import DocsContent from './DocsContent';
+
+const Documentation: React.FC = () => {
+  return (
+    <div className="flex min-h-screen bg-white dark:bg-gray-900">
+      <DocsSidebar />
+      <main className="flex-1 overflow-auto">
+        <div className="mx-auto max-w-3xl px-6 py-8">
+          <Routes>
+            <Route path="/" element={<DocsContent page="introduction" />} />
+            <Route path="/:page" element={<DocsContent />} />
+          </Routes>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default Documentation;

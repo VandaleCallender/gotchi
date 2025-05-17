@@ -4,6 +4,7 @@ import { usePet } from '../context/PetContext';
 import { useTheme } from '../context/ThemeContext';
 import { useWeb3Modal } from '@web3modal/wagmi/react';
 import { useAccount } from 'wagmi';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,6 +12,7 @@ const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const { open } = useWeb3Modal();
   const { address } = useAccount();
+  const location = useLocation();
   
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -23,10 +25,20 @@ const Navbar: React.FC = () => {
     <nav className="bg-gray-800 dark:bg-gray-900 border-b border-gray-700 sticky top-0 z-10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <div className="text-2xl font-pixel text-primary-400">
+          <div className="flex items-center space-x-8">
+            <Link to="/" className="text-2xl font-pixel text-primary-400">
               <span className="text-accent-500">Crypto</span>Gotchi
-            </div>
+            </Link>
+            <Link
+              to="/docs"
+              className={`text-sm ${
+                location.pathname.startsWith('/docs')
+                  ? 'text-primary-400'
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              Documentation
+            </Link>
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
@@ -73,6 +85,13 @@ const Navbar: React.FC = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-gray-800 dark:bg-gray-900 border-t border-gray-700">
           <div className="container mx-auto px-4 py-4 space-y-4">
+            <Link
+              to="/docs"
+              className="block text-gray-300 hover:text-white"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Documentation
+            </Link>
             <div className="flex items-center space-x-2">
               <div className="h-3 w-3 rounded-full bg-success-500 animate-pulse"></div>
               <span className="text-sm">Risk Score: {calculateRiskScore(pet.health)}</span>
