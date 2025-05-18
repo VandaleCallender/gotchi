@@ -72,6 +72,32 @@ export default {
           '50%': { transform: 'rotate(3deg)' },
         }
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: '#374151',
+            h1: {
+              fontFamily: '"Press Start 2P", cursive',
+              color: '#111827',
+            },
+            h2: {
+              fontFamily: '"Press Start 2P", cursive',
+              color: '#1F2937',
+            },
+            h3: {
+              fontFamily: '"Press Start 2P", cursive',
+              color: '#374151',
+            },
+            strong: {
+              color: '#111827',
+            },
+            code: {
+              color: '#8B5CF6',
+            },
+          },
+        },
+      },
     },
   },
   plugins: [],

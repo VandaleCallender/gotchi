@@ -8,7 +8,7 @@ const Documentation: React.FC = () => {
     <div className="flex min-h-screen bg-white dark:bg-gray-900">
       <DocsSidebar />
       <main className="flex-1 overflow-auto">
-        <div className="mx-auto max-w-3xl px-6 py-8">
+        <div className="container max-w-4xl px-8 py-12">
           <Routes>
             <Route path="/" element={<DocsContent page="introduction" />} />
             <Route path="/:page" element={<DocsContent />} />

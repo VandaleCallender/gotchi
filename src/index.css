@@ -83,6 +83,47 @@
   .risk-high {
     @apply bg-danger-500 text-danger-50;
   }
+
+  /* Documentation styles */
+  .prose {
+    @apply max-w-none;
+  }
+
+  .prose h1 {
+    @apply text-3xl font-pixel mb-8 text-gray-900 dark:text-white;
+  }
+
+  .prose h2 {
+    @apply text-2xl font-pixel mt-12 mb-6 text-gray-800 dark:text-gray-100;
+  }
+
+  .prose h3 {
+    @apply text-xl font-pixel mt-8 mb-4 text-gray-700 dark:text-gray-200;
+  }
+
+  .prose h4 {
+    @apply text-lg font-pixel mt-6 mb-3 text-gray-600 dark:text-gray-300;
+  }
+
+  .prose p {
+    @apply my-6 text-gray-600 dark:text-gray-300 leading-relaxed;
+  }
+
+  .prose ul {
+    @apply my-6 list-disc list-inside space-y-3;
+  }
+
+  .prose li {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+
+  .prose code {
+    @apply px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-md text-primary-600 dark:text-primary-400 text-sm;
+  }
+
+  .prose strong {
+    @apply text-gray-900 dark:text-white font-semibold;
+  }
 }
 
 .pet-container {
